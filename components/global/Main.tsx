@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import ChildrenProps from "@/type";
 import styled from "styled-components";
 
 const GlobalMain = styled.main`
@@ -30,11 +30,7 @@ const GlobalMain = styled.main`
   }
 `;
 
-interface MainProps {
-  children: ReactNode;
-}
-
-const Main = ({ children }: MainProps) => {
+const Main = ({ children }: ChildrenProps) => {
   return <GlobalMain>{children}</GlobalMain>;
 };
 

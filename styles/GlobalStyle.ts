@@ -20,6 +20,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+  letter-spacing: -1px;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -46,6 +47,7 @@ table {
 }
 
 a {
+  display: block;
   text-decoration: none;
   color: black;
 }
@@ -86,7 +88,7 @@ img {
   --ter-color-700: #2B802B; 
   --ter-color-800: #1C5C1C; 
   --ter-color-900: #0D330D; 
-  --neu-color-100: #F5F5F5; 
+  --neu-color-100: #f5f5f5; 
   --neu-color-200: #E6E9ED; 
   --neu-color-300: #D1D7E0; 
   --neu-color-400: #B0BAC8; 
@@ -94,7 +96,7 @@ img {
   --neu-color-600: #8492A8; 
   --neu-color-700: #6E7D94; 
   --neu-color-800: #3D5271; 
-  --neu-color-900: #1A1F2B; 
+  --neu-color-900: #1a1f2bff; 
   --pc-t-sz: 72px;
   --pc-h1-sz: 40px;
   --pc-h2-sz: 32px;
