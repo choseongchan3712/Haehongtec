@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 interface StyledProps {
   isWrapHoverd: boolean;
   isMenuHoverd: boolean;
+  isMainPage: boolean;
+  isTop: boolean;
 }
 
 const Wrap = styled.header<StyledProps>`
@@ -19,9 +22,10 @@ const Wrap = styled.header<StyledProps>`
   align-items: center;
   justify-content: space-between;
   padding: 0 50px;
-  background-color: rgba(245, 245, 245, 0.6);
+  background-color: ${(props)=>(props.isTop&&props.isMainPage ? 'unset':'rgba(245, 245, 245, 0.6)')};
   backdrop-filter: blur(5px);
-  box-shadow: 0px 3px 10px rgba(26, 31, 43, 0.1);
+  box-shadow: ${(props)=>(props.isTop&&props.isMainPage ? 'unset':'0px 3px 10px rgba(26, 31, 43, 0.1)')};
+  transition: 0.25s ease-in-out;
   &::before {
     content: "";
     position: absolute;
@@ -39,6 +43,11 @@ const Wrap = styled.header<StyledProps>`
     transition: 0.25s ease-in-out;
     transform: ${(props) => (props.isMenuHoverd ? "scaleY(1)" : "scaleY(0)")};
     transform-origin: top;
+  }
+
+  &:hover {
+    background-color: rgba(245, 245, 245, 0.6);
+    box-shadow: 0px 3px 10px rgba(26, 31, 43, 0.1);
   }
 
   .logo {
@@ -170,6 +179,33 @@ const Wrap = styled.header<StyledProps>`
 const Header = () => {
   const [wrapIsHover, setWrapIsHover] = useState<boolean>(false);
   const [menuIsHover, setMenuIsHover] = useState<boolean>(false);
+  const [isMainPage, setIsMainPage] = useState<boolean>(false);
+  const [isTop, setIsTop] = useState<boolean>(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    const topHandler = () => {
+      if (window.scrollY === 0) {
+        setIsTop(true);
+      } else {
+        setIsTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", topHandler);
+
+    return () => {
+      window.removeEventListener("scroll", topHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (router.pathname === "/") {
+      setIsMainPage(true);
+    } else {
+      setIsMainPage(false);
+    }
+  }, [router.pathname]);
 
   interface SubMenuProps {
     name: string;
@@ -280,6 +316,8 @@ const Header = () => {
       onClick={clickHandler}
       isWrapHoverd={wrapIsHover}
       isMenuHoverd={menuIsHover}
+      isMainPage={isMainPage}
+      isTop={isTop}
     >
       <Link href={"/"} className="logo">
         <Image src="/logo.png" alt="로고" layout="fill" objectFit="contain" />
