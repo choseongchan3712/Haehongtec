@@ -22,9 +22,13 @@ const Wrap = styled.header<StyledProps>`
   align-items: center;
   justify-content: space-between;
   padding: 0 50px;
-  background-color: ${(props)=>(props.isTop&&props.isMainPage ? 'unset':'rgba(245, 245, 245, 0.6)')};
+  background-color: ${(props) =>
+    props.isTop && props.isMainPage ? "unset" : "rgba(245, 245, 245, 0.6)"};
   backdrop-filter: blur(5px);
-  box-shadow: ${(props)=>(props.isTop&&props.isMainPage ? 'unset':'0px 3px 10px rgba(26, 31, 43, 0.1)')};
+  box-shadow: ${(props) =>
+    props.isTop && props.isMainPage
+      ? "unset"
+      : "0px 3px 10px rgba(26, 31, 43, 0.1)"};
   transition: 0.25s ease-in-out;
   &::before {
     content: "";
@@ -173,6 +177,22 @@ const Wrap = styled.header<StyledProps>`
   }
   .contact > a:hover {
     background-color: var(--pri-color-700);
+  }
+
+  @media (max-width: 1400px) {
+    padding: 0 30px;
+    .logo {
+      width: 120px;
+    }
+
+    .menu {
+      position: relative;
+      width: ${(props) => (props.isWrapHoverd ? "220px" : "150px")};
+    }
+
+    .contact {
+      width: 120px;
+    }
   }
 `;
 

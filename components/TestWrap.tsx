@@ -7,6 +7,7 @@ const Wrap = styled.div`
   left: 0;
   top: 0;
   width: 1400px;
+  max-width: 100%;
   height: 150vh;
   background-color: lightsalmon;
 
