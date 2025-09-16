@@ -1,3 +1,5 @@
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -179,6 +181,10 @@ const Wrap = styled.header<StyledProps>`
     background-color: var(--pri-color-700);
   }
 
+  .hamberger {
+    display: none;
+  }
+
   @media (max-width: 1400px) {
     padding: 0 30px;
     .logo {
@@ -193,6 +199,14 @@ const Wrap = styled.header<StyledProps>`
     .contact {
       width: 120px;
     }
+  }
+
+  @media (max-width: 1400px) {
+    .contact {
+      display: none;
+    }
+
+    
   }
 `;
 
@@ -362,6 +376,10 @@ const Header = () => {
 
       <div className="contact">
         <Link href={"/contact"}>문의하기</Link>
+      </div>
+
+      <div className="hamberger" aria-hidden="true">
+        <FontAwesomeIcon icon={faBars} />
       </div>
     </Wrap>
   );
