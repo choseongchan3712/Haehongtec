@@ -83,6 +83,10 @@ const Wrap = styled.header<StyledProps>`
     justify-content: space-between;
   }
 
+  .menu_contact {
+    display: none;
+  }
+
   .menu {
     position: relative;
     z-index: 992;
@@ -269,6 +273,10 @@ const Wrap = styled.header<StyledProps>`
       flex-direction: column;
     }
 
+    .menu_contact {
+      display: flex;
+    }
+
     .menu {
       all: unset;
       box-sizing: border-box;
@@ -347,6 +355,8 @@ const Wrap = styled.header<StyledProps>`
       box-sizing: border-box;
       cursor: pointer;
       color: var(--pri-color-900);
+      font-size: var(--tab-p-sz);
+      font-weight: var(--tab-p-wt);
       transition: 0.25s ease-in-out;
     }
 
@@ -595,6 +605,18 @@ const Header = () => {
               </ul>
             </li>
           ))}
+          <li className="menu menu_contact" aria-hidden="true">
+            <Link href={"/contact"} aria-hidden="true">
+              문의하기
+            </Link>
+            <ul className="sub_menu_wrap" aria-hidden="true">
+              <li className="sub_menu" aria-hidden="true">
+                <Link href={"/contact"} aria-hidden="true">
+                  문의하기
+                </Link>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
 
