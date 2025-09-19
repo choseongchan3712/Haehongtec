@@ -1,3 +1,4 @@
+import Footer from "@/components/global/Footer";
 import Header from "@/components/global/Header";
 import Main from "@/components/global/Main";
 import TestWrap from "@/components/TestWrap";
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </TestWrap>
       </Main>
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 const Contact = () => {
-  return <></>;
+  return <>문의하기</>;
 };
 
 export default Contact;
