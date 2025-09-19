@@ -1,4 +1,4 @@
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +11,7 @@ interface StyledProps {
   isMenuHoverd: boolean;
   isMainPage: boolean;
   isTop: boolean;
+  isMenuOpen: boolean;
 }
 
 const Wrap = styled.header<StyledProps>`
@@ -67,6 +68,10 @@ const Wrap = styled.header<StyledProps>`
     height: 100%;
     position: relative;
     z-index: 991;
+  }
+
+  .silde_top {
+    display: none;
   }
 
   .menu_wrap {
@@ -201,18 +206,221 @@ const Wrap = styled.header<StyledProps>`
     }
   }
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1024px) {
+    body {
+      overflow-x: hidden;
+    }
+
+    height: 50px;
+    &::before {
+      display: none;
+    }
+
+    .logo {
+      width: 100px;
+    }
+
     .contact {
       display: none;
     }
 
-    
+    nav {
+      all: unset;
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 995;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(
+        90deg,
+        var(--pri-color-500),
+        var(--pri-color-700)
+      );
+      display: flex;
+      flex-direction: column;
+      padding: 0 30px;
+      transform: ${(props) =>
+        props.isMenuOpen ? "translateX(0)" : "translateX(100%)"};
+      transition: 0.25s ease-in-out;
+    }
+
+    .silde_top {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      height: 50px;
+      border-bottom: 1px solid var(--neu-color-100);
+    }
+
+    .silde_top > svg {
+      font-size: 25px;
+      color: var(--neu-color-100);
+      cursor: pointer;
+    }
+
+    .menu_wrap {
+      all: unset;
+      box-sizing: border-box;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu {
+      all: unset;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 30px 0;
+      min-height: 160px;
+      color: var(--neu-color-100);
+    }
+
+    .menu > a {
+      all: unset;
+      cursor: pointer;
+      text-decoration: none;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 150px;
+      font-size: var(--tab-sub-sz);
+      font-weight: var(--tab-sub-wt);
+      border-right: 1px solid var(--neu-color-100);
+      transition: 0.25s ease-in-out;
+    }
+
+    .menu > a::after {
+      display: none;
+    }
+
+    .menu > a:hover {
+      all: unset;
+      cursor: pointer;
+      text-decoration: none;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 150px;
+      font-size: var(--tab-sub-sz);
+      font-weight: var(--tab-sub-wt);
+      border-right: 1px solid var(--neu-color-100);
+      transition: 0.25s ease-in-out;
+      color: var(--pri-color-900);
+    }
+
+    .sub_menu_wrap {
+      all: unset;
+      box-sizing: border-box;
+      width: calc(100% - 150px);
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 35px;
+      align-items: center;
+      padding: 0 50px;
+    }
+
+    .sub_menu {
+      all: unset;
+      box-sizing: border-box;
+    }
+
+    .sub_menu > a {
+      all: unset;
+      box-sizing: border-box;
+      cursor: pointer;
+      font-size: var(--tab-p-sz);
+      font-weight: var(--tab-p-wt);
+      transition: 0.25s ease-in-out;
+    }
+
+    .sub_menu > a:hover {
+      all: unset;
+      box-sizing: border-box;
+      cursor: pointer;
+      color: var(--pri-color-900);
+      transition: 0.25s ease-in-out;
+    }
+
+    .hamberger {
+      display: block;
+      z-index: 990;
+      cursor: pointer;
+      font-size: 25px;
+      color: var(--neu-color-900);
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: 40px;
+    padding: 0 10px;
+
+    .logo {
+      width: 80px;
+    }
+
+    nav {
+      padding: 0 10px;
+    }
+
+    .silde_top {
+      height: 40px;
+    }
+
+    .silde_top > svg {
+      font-size: 20px;
+    }
+
+    .menu {
+      padding: 15px 0;
+      min-height: 80px;
+    }
+
+    .menu > a {
+      width: 100px;
+      font-size: var(--mo-sub-sz);
+      font-weight: var(--mo-sub-wt);
+    }
+
+    .menu > a:hover {
+      width: 100px;
+      font-size: var(--mo-sub-sz);
+      font-weight: var(--mo-sub-wt);
+    }
+
+    .sub_menu_wrap {
+      width: calc(100% - 100px);
+      padding: 0 25px;
+    }
+
+    .sub_menu > a {
+      font-size: var(--mo-p-sz);
+      font-weight: var(--mo-p-wt);
+    }
+
+    .sub_menu > a:hover {
+      font-size: var(--mo-p-sz);
+      font-weight: var(--mo-p-wt);
+    }
+
+    .hamberger {
+      font-size: 20px;
+    }
   }
 `;
 
 const Header = () => {
   const [wrapIsHover, setWrapIsHover] = useState<boolean>(false);
   const [menuIsHover, setMenuIsHover] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [isMainPage, setIsMainPage] = useState<boolean>(false);
   const [isTop, setIsTop] = useState<boolean>(true);
   const router = useRouter();
@@ -343,6 +551,14 @@ const Header = () => {
     setMenuIsHover(false);
   };
 
+  const menuOpenHandler = () => {
+    setMenuOpen(true);
+  };
+
+  const menuCloseHandler = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <Wrap
       onMouseEnter={wrapOnHandler}
@@ -352,12 +568,20 @@ const Header = () => {
       isMenuHoverd={menuIsHover}
       isMainPage={isMainPage}
       isTop={isTop}
+      isMenuOpen={menuOpen}
     >
       <Link href={"/"} className="logo">
         <Image src="/logo.png" alt="로고" layout="fill" objectFit="contain" />
       </Link>
 
       <nav>
+        <div className="silde_top" aria-hidden="true">
+          <FontAwesomeIcon
+            icon={faXmark}
+            aria-hidden="true"
+            onClick={menuCloseHandler}
+          />
+        </div>
         <ul className="menu_wrap" onMouseEnter={menuOnHandler}>
           {header_data.map((data, index) => (
             <li key={index} className="menu">
@@ -379,7 +603,11 @@ const Header = () => {
       </div>
 
       <div className="hamberger" aria-hidden="true">
-        <FontAwesomeIcon icon={faBars} />
+        <FontAwesomeIcon
+          icon={faBars}
+          aria-hidden="true"
+          onClick={menuOpenHandler}
+        />
       </div>
     </Wrap>
   );
