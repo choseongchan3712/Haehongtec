@@ -1,3 +1,4 @@
+import TestWrap from "@/components/TestWrap";
 import { product_data } from "@/data/product_data";
 import { GetStaticPropsContext } from "next";
 
@@ -30,7 +31,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 }
 
 const Sort = ({ sortName }: SortPorps) => {
-  return <>{sortName}</>;
+  return <TestWrap>{sortName}</TestWrap>;
 };
 
 export default Sort;

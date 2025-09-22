@@ -1,3 +1,4 @@
+import TestWrap from "@/components/TestWrap";
 import { product_data } from "@/data/product_data";
 import { GetStaticPropsContext } from "next";
 
@@ -45,7 +46,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 }
 
 const Category = ({ categoryName }: CategoryProps) => {
-  return <>{categoryName}</>;
+  return <TestWrap>{categoryName}</TestWrap>;
 };
 
 export default Category;

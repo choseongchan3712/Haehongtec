@@ -1,5 +1,7 @@
+import TestWrap from "@/components/TestWrap";
+
 const News = () => {
-  return <>해홍뉴스</>;
+  return <TestWrap>해홍뉴스</TestWrap>;
 };
 
 export default News;

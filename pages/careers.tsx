@@ -1,5 +1,7 @@
+import TestWrap from "@/components/TestWrap";
+
 const Careers = () => {
-  return <>채용안내</>;
+  return <TestWrap>채용안내</TestWrap>;
 };
 
 export default Careers;

@@ -342,13 +342,13 @@ const Wrap = styled.footer`
     }
 
     @media (max-width: 480px) {
-        .top_wrap {
-            border: none;
-        }
+      .top_wrap {
+        border: none;
+      }
 
-        .page_nav {
-            display: none;
-        }
+      .page_nav {
+        display: none;
+      }
     }
   }
 `;
@@ -604,12 +604,15 @@ const Footer = () => {
               </li>
               <li>
                 <Link href={"#"}>
-                  <FontAwesomeIcon icon={faSquareInstagram} />
+                  <FontAwesomeIcon
+                    icon={faSquareInstagram}
+                    aria-hidden="true"
+                  />
                 </Link>
               </li>
               <li>
                 <Link href={"#"}>
-                  <FontAwesomeIcon icon={faSquareFacebook} />
+                  <FontAwesomeIcon icon={faSquareFacebook} aria-hidden="true" />
                 </Link>
               </li>
             </ul>

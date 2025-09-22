@@ -27,7 +27,7 @@ const Wrap = styled.header<StyledProps>`
   padding: 0 50px;
   background-color: ${(props) =>
     props.isTop && props.isMainPage ? "unset" : "rgba(245, 245, 245, 0.6)"};
-  backdrop-filter: blur(5px);
+  backdrop-filter: ${props => props.isTop && props.isMainPage ? "unset" : "blur(5px)"};
   box-shadow: ${(props) =>
     props.isTop && props.isMainPage
       ? "unset"
