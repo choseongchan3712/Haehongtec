@@ -1,4 +1,5 @@
 import Banner from "@/components/page/main/Banner";
+import ProductContents from "@/components/page/main/ProductContents";
 import SectionWrap from "@/components/page/main/SectionWrap";
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
     <>
       <Banner></Banner>
       <SectionWrap title="해홍 제품소개">
-        <></>
+        <ProductContents></ProductContents>
       </SectionWrap>
       <SectionWrap title="해홍 회사소식">
         <></>

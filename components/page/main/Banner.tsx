@@ -12,6 +12,7 @@ const Wrap = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   @media (max-width: 1024px) {
     height: 600px;
   }
