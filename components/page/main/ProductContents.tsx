@@ -1,4 +1,8 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
@@ -279,6 +283,215 @@ const Wrap = styled.div<WrapProps>`
     transform: ${(props) =>
       props.sortNum === 8 ? "translateX(0)" : "translateX(50%)"};
   }
+
+  .before_arrow {
+    display: none;
+  }
+
+  .after_arrow {
+    display: none;
+  }
+
+  .nav_dot_wrap {
+    display: none;
+  }
+
+  @media (max-width: 1400px) {
+    .nav {
+      width: 365px;
+    }
+    .contents {
+      width: 629px;
+      .img_box {
+        height: 350px;
+        .img {
+          width: 350px;
+          height: 350px;
+        }
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    .nav {
+      width: 243px;
+      .sort {
+        height: 60px;
+        font-size: var(--tab-p-sz);
+        font-weight: var(--tab-p-wt);
+      }
+    }
+    .contents {
+      width: 505px;
+      .sort_title {
+        font-size: var(--tab-h3-sz);
+        font-weight: var(--tab-h3-wt);
+      }
+      .category_wrap {
+        a {
+          padding: 5px 8px;
+          gap: 3px;
+          font-size: var(--tab-p-sz);
+          font-weight: var(--tab-p-wt);
+        }
+      }
+      .sort_page {
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-size: var(--tab-sub-sz);
+        font-weight: var(--tab-sub-wt);
+      }
+      .img_box {
+        height: 250px;
+        .img {
+          width: 250px;
+          height: 250px;
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(var(--pri-color-200), var(--ter-color-200));
+    .nav {
+      display: none;
+    }
+    .contents {
+      padding: 15px;
+      width: 100%;
+      height: 100%;
+      .sort_title {
+        position: relative;
+        font-size: var(--mo-h3-sz);
+        font-weight: var(--mo-h3-wt);
+        color: var(--pri-color-500);
+        z-index: 1;
+      }
+      .category_wrap {
+        position: absolute;
+        z-index: 1;
+        left: 15;
+        width: calc(100% - 30px);
+        bottom: 121px;
+        a {
+          padding: 5px 8px;
+          background-color: var(--pri-color-500);
+          color: var(--neu-color-100);
+          font-size: var(--mo-sub-sz);
+          font-weight: var(--mo-sub-wt);
+        }
+      }
+      .sort_page {
+        position: absolute;
+        left: 15px;
+        bottom: 70px;
+        z-index: 1;
+        padding: 5px 8px;
+        border-radius: 5px;
+        font-size: var(--mo-sub-sz);
+        font-weight: var(--mo-sub-wt);
+      }
+      .img_box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        background: none;
+        .img {
+          width: 300px;
+          height: 300px;
+        }
+      }
+    }
+    .before_arrow {
+      position: absolute;
+      z-index: 20;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 35px;
+      height: 35px;
+      border-radius: 35px;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--pri-color-500);
+      cursor: pointer;
+    }
+    .after_arrow {
+      position: absolute;
+      z-index: 20;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 35px;
+      height: 35px;
+      border-radius: 35px;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--pri-color-500);
+      cursor: pointer;
+    }
+    .nav_dot_wrap {
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 15px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        border: 1px solid var(--pri-color-500);
+      }
+      .dot_1 {
+        background-color: ${(props) =>
+          props.sortNum === 1 ? "var(--pri-color-500)" : "none"};
+      }
+      .dot_2 {
+        background-color: ${(props) =>
+          props.sortNum === 2 ? "var(--pri-color-500)" : "none"};
+      }
+      .dot_3 {
+        background-color: ${(props) =>
+          props.sortNum === 3 ? "var(--pri-color-500)" : "none"};
+      }
+      .dot_4 {
+        background-color: ${(props) =>
+          props.sortNum === 4 ? "var(--pri-color-500)" : "none"};
+      }
+      .dot_5 {
+        background-color: ${(props) =>
+          props.sortNum === 5 ? "var(--pri-color-500)" : "none"};
+      }
+      .dot_6 {
+        background-color: ${(props) =>
+          props.sortNum === 6 ? "var(--pri-color-500)" : "none"};
+      }
+      .dot_7 {
+        background-color: ${(props) =>
+          props.sortNum === 7 ? "var(--pri-color-500)" : "none"};
+      }
+      .dot_8 {
+        background-color: ${(props) =>
+          props.sortNum === 8 ? "var(--pri-color-500)" : "none"};
+      }
+    }
+  }
 `;
 
 const ProductContents = () => {
@@ -507,6 +720,22 @@ const ProductContents = () => {
     }
   };
 
+  const beforeClickHandler = () => {
+    if (sortNum > 1) {
+      setSortNum(sortNum - 1);
+    } else {
+      setSortNum(8);
+    }
+  };
+
+  const afterClickHandler = () => {
+    if (sortNum < 8) {
+      setSortNum(sortNum + 1);
+    } else {
+      setSortNum(1);
+    }
+  };
+
   return (
     <Wrap sortNum={sortNum}>
       <ul className="nav" aria-hidden="true">
@@ -551,6 +780,30 @@ const ProductContents = () => {
           </div>
         </article>
       ))}
+      <div
+        className="before_arrow"
+        aria-hidden="true"
+        onClick={beforeClickHandler}
+      >
+        <FontAwesomeIcon icon={faAngleLeft} aria-hidden="true" />
+      </div>
+      <div
+        className="after_arrow"
+        aria-hidden="true"
+        onClick={afterClickHandler}
+      >
+        <FontAwesomeIcon icon={faAngleRight} aria-hidden="true" />
+      </div>
+      <div className="nav_dot_wrap" aria-hidden="true">
+        <div className="dot dot_1" aria-hidden="true"></div>
+        <div className="dot dot_2" aria-hidden="true"></div>
+        <div className="dot dot_3" aria-hidden="true"></div>
+        <div className="dot dot_4" aria-hidden="true"></div>
+        <div className="dot dot_5" aria-hidden="true"></div>
+        <div className="dot dot_6" aria-hidden="true"></div>
+        <div className="dot dot_7" aria-hidden="true"></div>
+        <div className="dot dot_8" aria-hidden="true"></div>
+      </div>
     </Wrap>
   );
 };
