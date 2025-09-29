@@ -1,4 +1,5 @@
 import Banner from "@/components/page/main/Banner";
+import LogosWrap from "@/components/page/main/LogosWrap";
 import LongContents from "@/components/page/main/LongContents";
 import OtherContents from "@/components/page/main/OtherContents";
 import ProductContents from "@/components/page/main/ProductContents";
@@ -50,6 +51,7 @@ export default function Home() {
           ></ShortContents>
         </OtherContents>
       </SectionWrap>
+      <LogosWrap></LogosWrap>
     </>
   );
 }
